@@ -1,0 +1,10 @@
+db.getCollection("students").find({});
+db.students.insert({name:'大傻子',age:20});
+db.students.insertOne({name:'leileilei',age:18});
+db.students.insertMany([
+{name:'张三',age:18},
+{name:'李斯',age:18},
+{name:'啦啦',age:18}
+]);
+db.getCollection("students").find({age:20},{name:1,_id:0});
+db.students.remove({age:18})

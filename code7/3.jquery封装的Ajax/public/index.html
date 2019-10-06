@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试jQuery封装的Ajax请求</title>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h2>该页面是测试：jQuery发送Ajax请求</h2>
+<button id="btn1">点我，发送jQuery封装的ajax-GET请求</button>
+<button id="btn2">点我，发送jQuery封装的ajax-POST请求</button>
+
+
+<script>
+    $(function () {
+        //get请求（标准写法）
+        let btn1 = $('#btn1');
+        btn1.click(function () {
+            /*$.ajax('http://localhost:3000/test_get', {
+                method: 'GET',
+                data: {name: '代罔', age: 18},
+                success:function (result) {
+                    console.log(result);
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            })*/
+            //简化写法
+            $.get('http://localhost:3000/test_get',{name:'代罔',age:18},(data)=>{console.log(data)});
+        })
+
+        //post 请求 （标准写法）
+        let btn2 = $('#btn2');
+        btn2.click(function () {
+            /*$.ajax('http://localhost:3000/test_post', {
+                method: 'POST',
+                data: {name: 'leilei', age: 18},
+                success:function (result) {
+                    console.log(result);
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            })*/
+            //简化写法
+            $.post('http://localhost:3000/test_post',{name:'Leilei',age: 18},(data)=>{
+                console.log(data);
+            })
+        })
+
+    })
+</script>
+</body>
+</html>

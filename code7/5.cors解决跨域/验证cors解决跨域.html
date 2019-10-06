@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证cors解决跨域</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h1>验证cors解决跨域问题</h1>
+<button id="btn1">点我发送GET请求</button>
+<button id="btn2">点我发送POST请求</button>
+<script>
+
+    $(function () {
+        let btn1 = $('#btn1');
+        let btn2 = $('#btn2');
+        btn1.click(function () {
+            $.get('http://localhost:3000/test_get', {n: 2, m: 2}, (data) => {
+                console.log(data);
+            })
+        })
+        btn2.click(function () {
+            $.post('http://localhost:3000/test_post', {n: 1, m: 2}, (data) => {
+                console.log(data);
+            })
+        })
+    })
+</script>
+</body>
+</html>

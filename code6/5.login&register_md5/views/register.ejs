@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册页面</title>
+  <style>
+    .err{
+      color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+<span class="err"><%=errMsg.netWorkErr%></span>
+  <form action="http://192.168.43.112:3000/register" method="post">
+    📮邮箱📮：<input type="email" name="email"><span class="err"><%=errMsg.emailErr%></span><br><br>
+    🌈昵称🌈：<input type="text" name="nick_name"><span class="err"><%=errMsg.nickNameErr%></span><br><br>
+    ㊙️密&nbsp;码㊙️：<input type="password" name="password"><span class="err"><%=errMsg.passWordErr%></span><br><br>
+    确认密码&nbsp;：<input type="password" name="re_password"><span class="err"><%=errMsg.rePasswordErr%></span><br><br>
+    <input type="submit">
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取消上一次请求</title>
+</head>
+<body>
+<button id="btn">发送GET请求</button>
+<script>
+
+    let lastXhr;
+    let btn = document.getElementById('btn');
+    btn.onclick = function () {
+        if (lastXhr) {
+            lastXhr.abort();
+            // return;
+        }
+            lastXhr = getCode();
+
+    }
+
+    function getCode() {
+        // 1.实例化XMLHttpRequest对象
+        let xhr = new XMLHttpRequest();
+        //  2.设置onreadystatechange监听
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.response);
+            }
+        }
+        //  3.指定发送的方式，地址，携带的参数
+        xhr.open('GET', 'http://localhost:3000/get_code');
+
+        //  4.发送请求
+        xhr.send();
+
+        return xhr;
+
+        // xhr.abort();
+        /*
+        * abort()取消本次请求（拦截回来的响应）
+        * */
+    }
+</script>
+</body>
+</html>
